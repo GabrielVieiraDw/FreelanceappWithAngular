@@ -1,9 +1,9 @@
 <h1>New Proposal<h1>
 
-<div style="margin-top: -60px">
+<div>
   <form #proposalForm="ngForm">
     <div class="form-group">
-      <label for="customer" style="font-size: 16px;">Customer Name: </label>
+      <label for="customer">Customer Name: </label>
       <input type="text"
         id="customer"
         placeholder="Company A"
@@ -12,9 +12,12 @@
         #customer='ngModel'
         [(ngModel)]="proposal.customer"
       >
+      <div [hidden]="customer.valid || customer.pristine">
+        Customer name is required
+      </div>
     </div>
     <div class="form-group">
-      <label for="portfolio_url" style="font-size: 16px;"> Portifolio: </label>
+      <label for="portfolio_url"> Portifolio: </label>
       <input type="text"
         id="portfolio_url"
         placeholder="http://"
@@ -23,9 +26,12 @@
         #portifoloi_url='ngModel'
         [(ngModel)]="proposal.portfolio_url"
       >
+      <div [hidden]="portifoloi_url.valid || portifoloi_url.pristine">
+        Your portfolio is required
+      </div>
     </div>
     <div class="form-group">
-      <label for="tools" style="font-size: 16px;"> Tools: </label>
+      <label for="tools"> Tools: </label>
       <input type="text"
         id="tools"
         placeholder="Ruby on rails"
@@ -34,9 +40,12 @@
         #tools='ngModel'
         [(ngModel)]="proposal.tools"
       >
+      <div [hidden]="tools.valid || tools.pristine">
+        Tools are required
+      </div>
     </div>
     <div class="form-group">
-      <label for="estimated_hours" style="font-size: 16px;"> Estimated hours: </label>
+      <label for="estimated_hours"> Estimated hours: </label>
       <input type="number"
         id="estimated_hours"
         required
@@ -44,9 +53,12 @@
         #estimated_hours='ngModel'
         [(ngModel)]="proposal.estimated_hours"
       >
+      <div [hidden]="estimated_hours.valid || estimated_hours.pristine">
+        Estimated hours is required
+      </div>
     </div>
     <div class="form-group">
-      <label for="weeks_to_complete" style="font-size: 16px;"> Weeks: </label>
+      <label for="weeks_to_complete"> Weeks: </label>
       <input type="number"
         id="weeks_to_complete"
         required
@@ -54,9 +66,12 @@
         #weeks_to_complete='ngModel'
         [(ngModel)]="proposal.weeks_to_complete"
       >
+      <div [hidden]="weeks_to_complete.valid || weeks_to_complete.pristine">
+        Weeks to complete is required
+      </div>
     </div>
     <div class="form-group">
-      <label for="hourly_rate" style="font-size: 16px;"> Hourly rate: </label>
+      <label for="hourly_rate"> Hourly rate: </label>
       <input type="number"
         id="hourly_rate"
         required
@@ -64,12 +79,14 @@
         #hourly_rate='ngModel'
         [(ngModel)]="proposal.hourly_rate"
       >
+      <div [hidden]="hourly_rate.valid || hourly_rate.pristine">
+        Hourly rate is required
+      </div>
     </div>
     <div class="form-group">
-      <label for="client_email" style="font-size: 16px;"> Client email: <em>(Optional) </em> </label>
+      <label for="client_email"> Client email: <em>(Optional) </em> </label>
       <input type="email"
         id="client_email"
-        required
         name="client_email"  
         #client_email='ngModel'
         [(ngModel)]="proposal.client_email"
@@ -90,7 +107,7 @@
     dashboard and sending you a project update message daily so that you can have a transparent view of the development as it takes place.</p>
 
     <p>To accomplish the project and meet the requirements that we discussed, I am estimating that it will take {{ proposal.estimated_hours }} hours in development time to complete. 
-    The project should take {{ proposal.weeks_to_complete }} weeks to complete and with my hourly rate of {{ proposal.hourly_rate }}$/hour, the estimated total will be {{proposal.hourly_rate}} * {{proposal.estimated_hours}}.</p>
+    The project should take {{ proposal.weeks_to_complete }} weeks to complete and with my hourly rate of {{ proposal.hourly_rate }}$/hour, the estimated total will be {{proposal.hourly_rate! * proposal.estimated_hours!}}.</p>
 
     <p>The next step from here is to set up a meeting to finalize the project and sign contracts.</p>
 
