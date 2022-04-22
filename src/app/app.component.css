@@ -10,3 +10,20 @@
   display: block;
   text-align: left;
 }
+
+.dropdown-menu a {
+  color: #1a1b22;
+}
+
+.dropdown-menu a {
+  color: #1a1b22;
+}
+
+.btn-outline-primary {
+  border-color: #fff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #E5E4E2;
+  border-color: #E5E4E2;
+}
