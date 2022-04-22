@@ -1,0 +1,12 @@
+.navbar>.container {
+  display: contents;
+}
+
+.app-body {
+  margin-top: 20px;
+}
+
+.btn {
+  display: block;
+  text-align: left;
+}
