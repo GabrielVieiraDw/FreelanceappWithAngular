@@ -1,4 +1,13 @@
-<h1>Proposals</h1>
-<div *ngFor="let proposal of proposals">
-  <a routerLink="/proposal/{{ proposal.id }}">{{ proposal.id }} - {{ proposal.customer }}: {{ proposal.portfolio_url }}</a>
-</div> 
+<div class="container">
+  <h1 class="headline">Proposals</h1>
+  <div class="list-group">
+    <span class="list-group-item list-group-item-action flex-column align-items-start active" *ngFor="let proposal of proposals">
+      <a class="proposal-link" routerLink="/proposal/{{ proposal.id }}">
+        <h5 class="list-group-item-heading">{{proposal.customer}}</h5>
+        <p class="list-group-item-text">
+          {{proposal.hourly_rate! * proposal.estimated_hours! | currency:'USD':true }}
+        </p>
+      </a>
+    </span>
+  </div>
+</div>

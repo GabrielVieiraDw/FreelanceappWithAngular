@@ -1,0 +1,11 @@
+.list-group-item.active {
+  background-color: #fff;
+}
+
+.list-group-item-text {
+  color: black;
+}
+
+.proposal-link {
+  text-decoration: none;
+}
